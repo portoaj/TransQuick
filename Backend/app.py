@@ -9,8 +9,9 @@ def hello_world():
 
 @app.route('/', methods=['POST'])
 def result():
-    app.logger.info('This is info output')
-    return 'test'
+    input = request.data.decode('UTF-8')
+    app.logger.info(summarize(input))
+    return input
     input = str(request.data)
     return str(len(summarize(input)))
     return '\n\n\n'.join(summarize(str(request.data)))
