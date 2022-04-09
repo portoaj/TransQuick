@@ -10,11 +10,7 @@ def hello_world():
 @app.route('/', methods=['POST'])
 def result():
     input = request.data.decode('UTF-8')
-    app.logger.info(summarize(input))
-    return input
-    input = str(request.data)
-    return str(len(summarize(input)))
-    return '\n\n\n'.join(summarize(str(request.data)))
+    return str(summarize(input))
 
 if __name__ == '__main__':
     app.run(debug=True)
