@@ -35,18 +35,17 @@ def split_text(input, max_tokens=500):
 def summarize(input, max_tokens=200):
     parsed_input = split_text(input)
     output = []
-    start_time = time.time()
     for token_segment in parsed_input:
         response = openai.Completion.create(
         engine="text-davinci-002",
         prompt="Summarize this for a college student:\n" + token_segment.strip(),
-        temperature=0.2,
+        temperature=0.1,
         max_tokens=max_tokens,
         top_p=1.0,
-        frequency_penalty=0.4,
-        presence_penalty=0.3
+        frequency_penalty=0.5,
+        presence_penalty=0.4
         )
 
-        output.append(response['choices'][0]['text'])
+        output.append(response['choices'][0]['text'].strip())
 
     return '\n'.join(output)

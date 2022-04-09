@@ -1,5 +1,4 @@
 function summarize(){
-  console.log('test');
   const textBoxValue = document.getElementById("transcript").value;
 
   const options = {
@@ -10,7 +9,7 @@ function summarize(){
         body: JSON.stringify(textBoxValue),
     };
 
-  fetch("/", options).catch(err => console.log(err)).then(res => {
-    console.log(res);
+  fetch("/", options).catch(err => console.log(err)).then(res => res.json()).then(res => {
+    document.getElementById("transcript").value = res['summary'];
   });
 }
