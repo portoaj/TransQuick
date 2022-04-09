@@ -3,14 +3,30 @@ import openai
 
 openai.api_key = "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"
 
-def split_text(input, max_tokens=10):
+def split_text(input, max_tokens=8):
+    
     index = 0
+    split_input = input.split()
     output = []
-    split_input = input.split(' ')
-    for i in range(max_tokens + index, index, -1):
-        if split_input[i] == '.' or split_input[i] == '?' or split_input[i] == '!':
-            output.append(input[index: i])
-            index = i + 1
+    while index < len(split_input):
+        index += max_tokens
+        # If we hit the end of the string with this increase
+        if index >= len(split_input):
+            subresult = ' '.join(split_input[index - max_tokens: index + 1])
+            output.append(subresult)
+            return output
+        # If we want to count backwards til we hit punctuation
+        for i in range(index, index - max_tokens, - 1):
+            if split_input[i][-1] == '?' or split_input[i][-1] == '!' or split_input[i][-1] == '.':
+                subresult = ' '.join(split_input[index-max_tokens:i])
+                index = i + 1
+                output.append(subresult)
+                break
+            if i == index - max_tokens + 1:
+                subresult = ' '.join(split_input[index-max_tokens:i])
+                output.append(subresult)
+                break
+    
     return output
 
 
