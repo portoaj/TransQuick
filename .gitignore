@@ -1,2 +1,3 @@
 transquickvenv
 **/*.pyc
+.idea
