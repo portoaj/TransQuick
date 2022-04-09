@@ -11,13 +11,13 @@
     /* Fallback: Set a background color. */
     background-color: teal;
 
-    background: linear-gradient(270deg, #3ba4c6, #3bc643, #15e3f3, #e7a91f, #0a50e9);
+    background: linear-gradient(270deg, #800bda, #5406e7, #5406e7);
     background-size: 1000% 1000%;
     background-repeat: repeat;
 
-    -webkit-animation: title-gradient 21s ease infinite;
-    -moz-animation: title-gradient 21s ease infinite;
-    animation: title-gradient 21s ease infinite;
+    -webkit-animation: title-gradient 30s ease infinite;
+    -moz-animation: title-gradient 30s ease infinite;
+    animation: title-gradient 30s ease infinite;
 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

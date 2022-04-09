@@ -11,40 +11,36 @@
 
 <body class="bg-gray-900">
 <header>
-    <div class="max-w-7xl mx-auto py-15 px-4  lg:px-8">
-        <div class="text-center">
-            <h1 class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl title-gradient">
-                TransQuick</h1>
-            <p class="  mx-auto text-xl text-gray-500">Input lecture transcripts and rapidly get a summary with
-                the
-                machine learning.</p>
-        </div>
+    <div class="text-center my-200">
+        <h1 class=" text-4xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl title-gradient ">
+            TransQuick</h1>
+        <h2 class=" text-xl text-white">Input lecture transcripts and rapidly get a summary with
+            machine learning.</h2>
     </div>
-
 </header>
 
 <main>
 
-    <div>
-        <div class="mt-2">
-            <div id="tabs-1-panel-1" class="p-0.5 -m-0.5 rounded-lg" aria-labelledby="tabs-1-tab-1"
-                 role="tabpanel" tabindex="0">
-                <label for="transcript" class="sr-only">Transcript</label>
-                <div>
-                        <textarea rows="5" name="transcript" id="transcript"
-                                  class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                                  placeholder="Add your comment..."></textarea>
-                </div>
-            </div>
+    <div class=""
+    <div class="mt-2 flex items-center " style="justify-content: center">
+        <div id="tabs-1-panel-1" class="p-0.5 -m-0.5 rounded-lg " aria-labelledby="tabs-1-tab-1"
+             role="tabpanel" tabindex="0">
+            <label for="transcript" class="sr-only">Transcript</label>
+
+            <textarea rows="10" cols="125" name="transcript" id="transcript"
+                      class=" shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block  sm:text-sm border-gray-300 rounded-md"
+                      placeholder="Paste the transcript here..."></textarea>
+
         </div>
     </div>
+
     <div class="mt-2 flex justify-end">
         <button onclick="summarize()"
-                class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            Post
+                class="inline-flex  px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            Sumamrize
         </button>
     </div>
-        
+</main>
 </main>
 
 </body>
