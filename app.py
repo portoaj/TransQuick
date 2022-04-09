@@ -1,11 +1,11 @@
-from flask import Flask, request
+from flask import Flask, render_template, request
 from summarize import summarize
 import sys
 app = Flask(__name__)
 
 @app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
+def index():
+    return render_template('index.html')
 
 @app.route('/', methods=['POST'])
 def result():
