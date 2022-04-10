@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
 from summarize import summarize
-import sys
+
+import asyncio
 app = Flask(__name__)
 
 @app.route("/")
@@ -10,7 +11,8 @@ def index():
 @app.route('/', methods=['POST'])
 def result():
     input = request.data.decode('UTF-8')
-    return {'summary': (str(summarize(input)))}
+    output = asyncio.run(summarize(input))
+    return {'summary': output}
 
 if __name__ == '__main__':
     app.run(debug=True)

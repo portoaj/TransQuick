@@ -1,6 +1,5 @@
-import os
 import openai
-import time
+import asyncio
 
 openai.api_key = "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"
 
@@ -31,21 +30,24 @@ def split_text(input, max_tokens=500):
     
     return output
 
-
-def summarize(input, max_tokens=200):
-    parsed_input = split_text(input)
-    output = []
-    for token_segment in parsed_input:
-        response = openai.Completion.create(
+async def call_gpt(token_segment, max_tokens):
+    response = openai.Completion.create(
         engine="text-davinci-002",
         prompt="Summarize this for a college student:\n" + token_segment.strip(),
         temperature=0.1,
         max_tokens=max_tokens,
         top_p=1.0,
-        frequency_penalty=0.5,
-        presence_penalty=0.4
+        frequency_penalty=0.3,
+        presence_penalty=0.1
         )
+    return response['choices'][0]['text'].strip().rstrip('\n')
 
-        output.append(response['choices'][0]['text'].strip())
+async def summarize(input, max_tokens=200):
+    parsed_input = split_text(input)
+    output = []
+    tasks = []
+    for token_segment in parsed_input:
+        tasks.append(asyncio.create_task(call_gpt(token_segment, max_tokens)))
+    output = await asyncio.gather(*tasks)
 
     return '\n'.join(output)
