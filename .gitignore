@@ -1,3 +1,4 @@
 transquickvenv
 **/*.pyc
 .idea
+.env
