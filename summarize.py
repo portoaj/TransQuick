@@ -1,7 +1,11 @@
 import openai
 import asyncio
 
-openai.api_key = "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"
+from dotenv import load_dotenv
+load_dotenv()
+import os
+
+openai.api_key = os.environ.get("API_KEY")
 
 def split_text(input, max_tokens=500):
     
@@ -34,11 +38,11 @@ async def call_gpt(token_segment, max_tokens):
     response = openai.Completion.create(
         engine="text-davinci-002",
         prompt="Summarize this for a college student:\n" + token_segment.strip(),
-        temperature=0.1,
+        temperature=0.7,
         max_tokens=max_tokens,
         top_p=1.0,
-        frequency_penalty=0.3,
-        presence_penalty=0.1
+        frequency_penalty=0.0,
+        presence_penalty=0.0
         )
     return response['choices'][0]['text'].strip().rstrip('\n')
 
