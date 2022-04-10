@@ -11,35 +11,32 @@
 
 <body class="bg-gray-900">
 <header>
-    <div class="text-center my-200">
+    <div class="text-center">
         <h1 class=" text-4xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl title-gradient ">
             TransQuick</h1>
-        <h2 class=" text-xl text-white">Input lecture transcripts and rapidly get a summary with
+        <h2 class=" text-xl text-white " style="margin-top: 7px">Rapidly get summaries of lecture transcripts with
             machine learning.</h2>
     </div>
 </header>
 
-<main>
-    
-    <div class="mt-2 flex items-center text-area-align " style="justify-content: center">
+<main style="margin-top: 35px">
+
+    <div class="mt-2 flex items-center text-area-align text-area-container-sizing" style="justify-content: center">
         <div id="tabs-1-panel-1" class="p-0.5 -m-0.5 rounded-lg " aria-labelledby="tabs-1-tab-1"
              role="tabpanel" tabindex="0">
             <label for="transcript" class="sr-only">Transcript</label>
 
-            <textarea rows="10" cols="125" name="transcript" id="transcript"
-                      class=" shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block  sm:text-sm border-gray-300 rounded-md"
+            <textarea rows="18" cols="125" name="transcript" id="transcript"
+                      class="text-area-sizing shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block  sm:text-sm border-gray-300 rounded-md"
                       placeholder="Paste the transcript here..."></textarea>
         </div>
     </div>
 
-     
-    <button onclick="summarize()" class=" button-align px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+
+    <button onclick="summarize()" style = "margin-top: 5px"
+            class=" button-align px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 ">
         Summarize
     </button>
-    
 </main>
-
 </body>
-</div>
-
 </html>

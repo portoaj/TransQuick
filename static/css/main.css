@@ -39,11 +39,16 @@
     100%{background-position:0% 51%}
 }
 
-.text-area-align{
-  width: 75vw;
+.text-area-container-sizing{
+  width: 100vw;
 }
+.text-area-sizing{
+  width: 77.3vw;
+}
+
+
 .button-align{
-  margin-left: 76vw;
+  margin-left: calc(52.34px + 76.5vw);
 }
 *,
 ::before,
